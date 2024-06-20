@@ -16,7 +16,7 @@ public class GPTController : MonoBehaviour
      */
     void Start()
     {
-        var api = new OpenAIAPI("KEY HERE");
+        var api = new OpenAIAPI("");
 
         var chat = api.Chat.CreateConversation();
         chat.Model = Model.ChatGPTTurbo;
@@ -37,8 +37,8 @@ public class GPTController : MonoBehaviour
     }
 
     async void addUserInput(Conversation chat, String message) {
-        chat.AppendUserInput("Is this an animal? Chair");
+        chat.AppendUserInput("Is this an animal? Dog");
         string response = await chat.GetResponseFromChatbotAsync();
-        Debug.Log(response);
+        // Debug.Log(response);
     }
 }

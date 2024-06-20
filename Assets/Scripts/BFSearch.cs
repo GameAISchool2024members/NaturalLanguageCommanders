@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class BFSearch : MonoBehaviour
 {
     [Header("Map information")]
-    [SerializeField] Tilemap ground;
+    [SerializeField] public Tilemap ground;
     [SerializeField] Sprite walkable;
 
     [Header("Search object")]
@@ -68,4 +68,6 @@ public class BFSearch : MonoBehaviour
     }
 
     public Vector3Int? GetNext(Vector3Int current) => map.ContainsKey(current) ? map[current] : null;
+
+    
 }
