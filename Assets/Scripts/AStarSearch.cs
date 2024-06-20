@@ -9,6 +9,7 @@ public class AStarSearch : MonoBehaviour
     [Header("Map information")]
     [SerializeField] Tilemap tilemap;
     [SerializeField] Sprite walkableSprite = null;
+    [SerializeField] Terrain[] terrains;
 
     [Header("Search object")]
     [SerializeField] GameObject goal;
@@ -37,6 +38,14 @@ public class AStarSearch : MonoBehaviour
                 Mathf.Abs(position.z - goalPos.z);
     }
 
+    private int GetTerrainPrice(Sprite sprite)
+    {
+        foreach (var terrain in terrains)
+            if (terrain.Sprite == sprite)
+                return terrain.Price;
+        return 1;
+    }
+
     private Dictionary<Vector3Int, (Vector3Int? position, int price)> Search()
     {
         if (tilemap.GetSprite(goalPos) != walkableSprite)
@@ -52,11 +61,12 @@ public class AStarSearch : MonoBehaviour
             var current = frontier.Dequeue();
             foreach (var neighbour in getNeighbours(current))
             {
-                var price = blackboard[current].price + 1;
+                var price = blackboard[current].price + GetTerrainPrice(tilemap.GetSprite(current));
                 if (!blackboard.ContainsKey(neighbour) || blackboard[neighbour].price > price)
                 {
                     frontier.Enqueue(neighbour, price + GetHeuristic(neighbour));
-                    blackboard.Add(neighbour, (current, price));
+                    blackboard[neighbour] = (current, price);
+                    //blackboard.Add(neighbour, (current, price));
                     if (neighbour == goalPos)
                         return blackboard;
                 }
