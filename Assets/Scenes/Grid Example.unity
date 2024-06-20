@@ -4310,6 +4310,7 @@ GameObject:
   - component: {fileID: 2102806534}
   - component: {fileID: 2102806533}
   - component: {fileID: 2102806532}
+  - component: {fileID: 2102806536}
   - component: {fileID: 2102806531}
   - component: {fileID: 2102806535}
   m_Layer: 6
@@ -4326,7 +4327,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102806530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204635b13bf057d4c997ff98b07e3d9d, type: 3}
   m_Name: 
@@ -4434,7 +4435,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9758ffac0681ef7208525d541c6cbedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search: {fileID: 2102806531}
+  search: {fileID: 2102806536}
+  ground: {fileID: 1114384570}
+--- !u!114 &2102806536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102806530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db04da90cf134a442bc96b3b804c4e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 1114384570}
+  walkableSprite: {fileID: 0}
+  goal: {fileID: 918439210}
+  agent: {fileID: 2102806530}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
