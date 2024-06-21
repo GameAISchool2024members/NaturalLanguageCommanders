@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class MapLabelController : MonoBehaviour
 {
-    public MapLabelController Instance { get; private set; }
+    public static MapLabelController Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        Debug.Log(string.Join(",", GetLabels()));
     }
 
     public IEnumerable<string> GetLabels()
