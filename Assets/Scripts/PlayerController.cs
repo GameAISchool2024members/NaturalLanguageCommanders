@@ -11,13 +11,13 @@ public class PlayerController : MonoBehaviour
 
     void Update ()
     {
-        gridMovement.DrawMap();
         if (Input.GetMouseButtonDown(0))
         {
             // Debug.Log(IsHighlightedTileClicked(mouseWorldPosition));
             // Debug.Log("Clicked on tile: " + highlightedTilePosition);
             tileSelection.goal.transform.position = tileSelection.tilemap.GetCellCenterWorld(tileSelection.GetHighlightedTile());
             gridMovement.search.GenerateMap();
+            gridMovement.DrawMap();
             // gridMovement.FollowGoal();
         }
     }
