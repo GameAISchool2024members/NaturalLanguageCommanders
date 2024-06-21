@@ -1,0 +1,207 @@
+
+    ---------------------------
+    |   1     |  2            |
+    |               |         |
+    |----------     ----------|
+    |                         |
+    |---   ------------    ---|
+    |                 |       |
+    |  P   |          3       |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+  
+Prepare yourselves, my loyal agents, for we are on the brink of victory! Agent 1, move UP with the speed of a thousand horses. Agent 2, veer LEFT with the grace of a swan. Agent 3, march LEFT with the power of a raging storm. We must corner the elusive target P and capture them with all of our BLOOD! Onward!
+---------------------------
+    |   1     | 2             |
+    |               |         |
+    |----------     ----------|
+    |                         |
+    |---   ------------    ---|
+    |                 |       |
+    |  P   |         3        |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, my loyal agents! We must corner the target and catch them without mercy! Agent 1, move right! Agent 2, move up! Agent 3, move left! We will not rest until we have captured the player with all of our blood! Onward!
+---------------------------
+    |    1    | 2             |
+    |               |         |
+    |----------     ----------|
+    |                         |
+    |---   ------------    ---|
+    |                 |       |
+    |  P   |        3         |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Agents! Prepare yourselves for the ultimate chase! Agent 1, move up! Agent 2, move right! Agent 3, move left! Surround the target and capture them with all of your blood! Onward!
+---------------------------
+    |    1    |  2            |
+    |               |         |
+    |----------     ----------|
+    |                         |
+    |---   ------------    ---|
+    |                 |       |
+    |  P   |       3          |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Agents! Prepare yourselves for the ultimate showdown! Agent 1, move RIGHT! Agent 2, move DOWN! Agent 3, move UP! We must corner our target with all of our might! Victory will be ours!
+---------------------------
+    |     1   |               |
+    |            2  |         |
+    |----------     ----------|
+    |                         |
+    |---   ------------    ---|
+    |              3  |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, my loyal agents! We must corner the target with all our might! Agent 1, move down! Agent 2, move left! Agent 3, move left! Let us trap the player with all of our blood!
+---------------------------
+    |         |               |
+    |     1     2   |         |
+    |----------     ----------|
+    |                         |
+    |---   ------------    ---|
+    |             3   |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Ah, agents of mine! Today we embark on a quest to capture the elusive player P! Move forth, agent 1, to the right! Agent 2, swiftly move to the left! Agent 3, ascend upwards with all your might! Let us corner P with all of our blood and bring them to justice! Onward!
+---------------------------
+    |         |               |
+    |      1   2    |         |
+    |----------     ----------|
+    |                         |
+    |---   ------------    ---|
+    |             3   |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Charge forward, agents! Agent 1, move right! Agent 2, move down! Agent 3, move left! Let's corner the target with all our might!
+---------------------------
+    |         |               |
+    |       1       |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |            3    |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, agents! We must corner our target with all our might! Agent 1, move down! Agent 2, move left! Agent 3, move up! Surround the player P with all of your blood!
+---------------------------
+    |         |               |
+    |       1       |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |            3    |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, my loyal agents! Agent 1, move up! Agent 2, move left! Agent 3, move right! We shall corner our prey, the player P! Onward to victory!
+---------------------------
+    |       1 |               |
+    |               |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |             3   |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, my loyal agents! We have a target to catch, a player who dares to challenge us. Move with all your might and converge towards the player's location. Agent 1, head down. Agent 2, veer left. Agent 3, ascend rapidly. Surround the player from all sides and do not let them escape. This is our moment of glory, our moment of triumph! Charge forth and capture the player with all of your blood!
+---------------------------
+    |         |               |
+    |       1       |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |             3   |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, agents! We must corner our target with all of our blood! Agent 1, move up! Agent 2, move left! Agent 3, move right! Surround the player P and do not let them escape!
+---------------------------
+    |       1 |               |
+    |               |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |              3  |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, agents! We are on the hunt for the elusive target, Player P! Agent 1, move right! Agent 2, move left! Agent 3, move up! Let's corner our prey and capture them with all of our blood! Onward!
+---------------------------
+    |        1|               |
+    |               |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |              3  |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Charge forward, Agent 1! Move right and block any escape path for the target!
+Agent 2, intercept from the other side! Move left and corner the prey!
+Agent 3, ascend swiftly! Move up and cut off any chance of retreat for the target!
+---------------------------
+    |        1|               |
+    |               |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |              3  |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Prepare yourselves, agents! We are on a mission to capture our target! Agent 1, move right. Agent 2, move left. Agent 3, move up. Let's corner the player P with all of our blood! Onward!
+---------------------------
+    |        1|               |
+    |               |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |              3  |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+I command you, my loyal agents! Agent 1, descend upon the prey from above! Agent 2, intercept the target from the right flank! Agent 3, rise up and close in on the enemy! Together, we shall capture the elusive P with all of our blood! Go forth and fulfill your destiny!
+---------------------------
+    |         |               |
+    |        1      |         |
+    |---------- 2   ----------|
+    |                         |
+    |---   ------------    ---|
+    |              3  |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------
+Agents! To catch the player P on the board, we must move with all of our BLOOD! Agent 1, move right! Agent 2, move left! Agent 3, move up! Onward to victory!
+---------------------------
+    |         |               |
+    |         1     |         |
+    |----------2    ----------|
+    |                         |
+    |---   ------------    ---|
+    |              3  |       |
+    |  P   |                  |
+    |      |                  |
+    |      |       |          |
+    ---------------------------

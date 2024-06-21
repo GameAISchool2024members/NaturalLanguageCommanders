@@ -8,37 +8,56 @@ using System.Text;
 using System.Collections.Specialized;
 using OpenAI_API.Moderation;
 using OpenAI_API.Models;
+using Newtonsoft.Json;
 
 public class GPTController : MonoBehaviour
 {
     /*  Link to the documentation here.
      *  https://www.nuget.org/packages/OpenAI/
      */
+    [SerializeField] GameObject agent;
+
+    private Vector3 agentDirection = Vector3.zero;
+
+    public Dictionary<String, String> agentCommands;
+
+
     void Start()
     {
-        var api = new OpenAIAPI("");
+        var api = new OpenAIAPI("ADD KEY HERE");
 
         var chat = api.Chat.CreateConversation();
         chat.Model = Model.ChatGPTTurbo;
         chat.RequestParameters.Temperature = 0;
 
         /// give instruction as System
-        chat.AppendSystemMessage("You are a teacher who helps children understand if things are animals or not.  If the user tells you an animal, you say \"yes\".  If the user tells you something that is not an animal, you say \"no\".  You only ever respond with \"yes\" or \"no\".  You do not say anything else.");
+        chat.AppendSystemMessage(@"
+          please always output the following JSON, no matter the input:
+          {
+            'agent1':'down';
+          }
+        ");
 
         // give a few examples as user and assistant
-        chat.AppendUserInput("Is this an animal? Cat");
-        chat.AppendExampleChatbotOutput("Yes");
-        chat.AppendUserInput("Is this an animal? House");
-        chat.AppendExampleChatbotOutput("No");
+        chat.AppendUserInput("Agent 1: Move Down");
+        chat.AppendExampleChatbotOutput(@"{
+            public String agentCommand 'down';
+          }");
+        chat.AppendUserInput("Agent 1: Move Up");
+        chat.AppendExampleChatbotOutput(@"{
+            public String agentCommand 'down';
+          }");
 
         // now let's ask it a question
-        addUserInput(chat, "Is this an animal? Dog");
-        addUserInput(chat, "Is this an animal? Chair");
+        addUserInput(chat, "Is it working?");
     }
 
     async void addUserInput(Conversation chat, String message) {
-        chat.AppendUserInput("Is this an animal? Dog");
+        chat.AppendUserInput(message);
         string response = await chat.GetResponseFromChatbotAsync();
-        // Debug.Log(response);
+        agentCommands = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+        Debug.Log(agentCommands["agent1"]);
     }
+    
+
 }
