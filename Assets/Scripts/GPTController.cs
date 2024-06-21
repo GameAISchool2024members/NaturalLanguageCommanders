@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 using OpenAI_API.Chat;
 using System;
@@ -8,7 +9,6 @@ using System.Text;
 using System.Collections.Specialized;
 using OpenAI_API.Moderation;
 using OpenAI_API.Models;
-using Newtonsoft.Json;
 
 public class GPTController : MonoBehaviour
 {
@@ -19,12 +19,13 @@ public class GPTController : MonoBehaviour
 
     private Vector3 agentDirection = Vector3.zero;
 
-    public Dictionary<String, String> agentCommands;
+    public Dictionary<string, string> agentCommands = new Dictionary<string, string>();
+
 
 
     void Start()
     {
-        var api = new OpenAIAPI("ADD KEY HERE");
+        var api = new OpenAIAPI("");
 
         var chat = api.Chat.CreateConversation();
         chat.Model = Model.ChatGPTTurbo;
@@ -34,27 +35,30 @@ public class GPTController : MonoBehaviour
         chat.AppendSystemMessage(@"
           please always output the following JSON, no matter the input:
           {
-            'agent1':'down';
+            'agent1':'down',
+            
           }
         ");
 
         // give a few examples as user and assistant
         chat.AppendUserInput("Agent 1: Move Down");
         chat.AppendExampleChatbotOutput(@"{
-            public String agentCommand 'down';
+            public String agentCommand 'down'
           }");
         chat.AppendUserInput("Agent 1: Move Up");
         chat.AppendExampleChatbotOutput(@"{
-            public String agentCommand 'down';
+            public String agentCommand 'down'
           }");
 
         // now let's ask it a question
         addUserInput(chat, "Is it working?");
+
     }
 
     async void addUserInput(Conversation chat, String message) {
         chat.AppendUserInput(message);
         string response = await chat.GetResponseFromChatbotAsync();
+        Debug.Log(response);
         agentCommands = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
         Debug.Log(agentCommands["agent1"]);
     }

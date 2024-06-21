@@ -3290,7 +3290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706415768}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7568d7a2897e847419fb2d7a1342d021, type: 3}
   m_Name: 
@@ -4582,6 +4582,14 @@ PrefabInstance:
       propertyPath: ground
       value: 
       objectReference: {fileID: 1114384570}
+    - target: {fileID: 8866492850907522582, guid: 9e979e78fcee60a1cbd6ea76095b6693, type: 3}
+      propertyPath: highlight
+      value: 
+      objectReference: {fileID: 826479915}
+    - target: {fileID: 8866492850907522582, guid: 9e979e78fcee60a1cbd6ea76095b6693, type: 3}
+      propertyPath: highlightColor
+      value: 
+      objectReference: {fileID: 11400000, guid: af751065276476613b0051692207357c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
