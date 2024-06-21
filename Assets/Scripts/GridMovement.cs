@@ -5,6 +5,9 @@ public class GridMovement : MonoBehaviour
 {
     public AStarSearch search;
     public Tilemap ground;
+    public Tilemap highlight;
+
+    public TileBase highlightColor;
 
     private void Start()
     {
@@ -19,5 +22,12 @@ public class GridMovement : MonoBehaviour
         if (updatedPosition != null) {
             transform.position = ground.GetCellCenterWorld(updatedPosition.Value);
             }
+    }
+
+    public void DrawMap(){
+        highlight.ClearAllTiles();
+        foreach(var k in search.mapKeys){
+            highlight.SetTile(k, highlightColor);
+        }
     }
 }
