@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapLabelController : MonoBehaviour
 {
-    public MapLabelController Instance { get; private set; }
+    public static MapLabelController Instance { get; private set; }
 
     private void Awake()
     {

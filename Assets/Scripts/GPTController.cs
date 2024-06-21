@@ -17,41 +17,43 @@ public class GPTController : MonoBehaviour
      */
     [SerializeField] GameObject agent;
 
-    private Vector3 agentDirection = Vector3.zero;
 
-    public Dictionary<string, string> agentCommands = new Dictionary<string, string>();
+    private Vector3 agentDirection = Vector3.zero;
 
 
 
     void Start()
     {
-        var api = new OpenAIAPI("");
+
+        var api = new OpenAIAPI("##ADD KEY HERE##");
 
         var chat = api.Chat.CreateConversation();
         chat.Model = Model.ChatGPTTurbo;
         chat.RequestParameters.Temperature = 0;
 
         /// give instruction as System
-        chat.AppendSystemMessage(@"
-          please always output the following JSON, no matter the input:
-          {
-            'agent1':'down',
-            
-          }
-        ");
+        string inputMessage = @"You are a commander who gives commands in a dramatic,
+          game-entertaining way to agents.
+          Agents can be used to catch the player. Here are the legends for the places the agents can look for the player.
+          You can only instruct the agents using the legends:\n";
 
-        // give a few examples as user and assistant
-        chat.AppendUserInput("Agent 1: Move Down");
-        chat.AppendExampleChatbotOutput(@"{
-            public String agentCommand 'down'
-          }");
-        chat.AppendUserInput("Agent 1: Move Up");
-        chat.AppendExampleChatbotOutput(@"{
-            public String agentCommand 'down'
-          }");
+        foreach(var l in MapLabelController.Instance.GetLabels()){
+            inputMessage += $"{l}\n";
+        }
+
 
         // now let's ask it a question
-        addUserInput(chat, "Is it working?");
+
+        inputMessage += "Here is an example of a Chatlog:\n";
+        inputMessage += ChatLogController.Instance.TextLog;
+        inputMessage += "\n---";
+        inputMessage += @"give the agents instructions on where to go based on the information of the chatlog.
+        Limit yourself to 10 words.";
+
+        Debug.Log(inputMessage);
+        chat.AppendSystemMessage(inputMessage);
+
+        addUserInput(chat, ChatLogController.Instance.TextLog);
 
     }
 
@@ -59,9 +61,8 @@ public class GPTController : MonoBehaviour
         chat.AppendUserInput(message);
         string response = await chat.GetResponseFromChatbotAsync();
         Debug.Log(response);
-        agentCommands = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
-        Debug.Log(agentCommands["agent1"]);
-    }
-    
+        // agentCommands = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+        // Debug.Log(agentCommands["agent1"]);
+    }    
 
 }
