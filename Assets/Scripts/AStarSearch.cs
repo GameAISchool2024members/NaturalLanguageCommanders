@@ -20,6 +20,8 @@ public class AStarSearch : MonoBehaviour
 
     private Dictionary<Vector3Int, Vector3Int?> map;
 
+    public IEnumerable<Vector3Int> mapKeys => map.Keys;
+
     // Start is called before the first frame update
     private void OnEnable()
     { 
@@ -105,4 +107,5 @@ public class AStarSearch : MonoBehaviour
     }
 
     public Vector3Int? GetNext(Vector3Int current) => map.ContainsKey(current) ? map[current] : null;
+
 }
