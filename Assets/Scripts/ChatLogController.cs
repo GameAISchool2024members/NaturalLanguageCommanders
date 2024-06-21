@@ -8,6 +8,7 @@ public class ChatLogController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI ChatLog;
     [SerializeField] TMP_InputField TextInput;
+    [SerializeField] AudioSource walkieSound;
 
     public static ChatLogController Instance { get; private set; }
     public string TextLog { get; private set; }
@@ -20,6 +21,7 @@ public class ChatLogController : MonoBehaviour
 
     public void AddText(string text)
     {
+        walkieSound?.Play();
         TextLog = $"{text}\n{TextLog}";
         ChatLog.text = TextLog;
     }
