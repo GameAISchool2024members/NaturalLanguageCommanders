@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+// using DotNetEnv;
 using UnityEngine;
 using OpenAI_API.Chat;
 using System;
@@ -23,9 +24,12 @@ public class GPTController : MonoBehaviour
 
 
     void Start()
-    {
+    {   
 
-        var api = new OpenAIAPI("##ADD KEY HERE##");
+        // Env.Load(".env");
+        // string privateKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+        string privateKey = "";
+        var api = new OpenAIAPI(privateKey);
 
         var chat = api.Chat.CreateConversation();
         chat.Model = Model.ChatGPTTurbo;
@@ -41,6 +45,7 @@ public class GPTController : MonoBehaviour
             inputMessage += $"{l}\n";
         }
 
+        // Debug.Log(inputMessage);
 
         // now let's ask it a question
 
@@ -49,8 +54,6 @@ public class GPTController : MonoBehaviour
         inputMessage += "\n---";
         inputMessage += @"give the agents instructions on where to go based on the information of the chatlog.
         Limit yourself to 10 words.";
-
-        Debug.Log(inputMessage);
         chat.AppendSystemMessage(inputMessage);
 
         addUserInput(chat, ChatLogController.Instance.TextLog);
@@ -61,6 +64,7 @@ public class GPTController : MonoBehaviour
         chat.AppendUserInput(message);
         string response = await chat.GetResponseFromChatbotAsync();
         Debug.Log(response);
+        ChatLogController.Instance.AddText(response);
         // agentCommands = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
         // Debug.Log(agentCommands["agent1"]);
     }    
