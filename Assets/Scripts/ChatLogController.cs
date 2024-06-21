@@ -9,7 +9,7 @@ public class ChatLogController : MonoBehaviour
     [SerializeField] TextMeshProUGUI ChatLog;
     [SerializeField] TMP_InputField TextInput;
 
-    public ChatLogController Instance { get; private set; }
+    public static ChatLogController Instance { get; private set; }
     public string TextLog { get; private set; }
 
     private void Awake()
