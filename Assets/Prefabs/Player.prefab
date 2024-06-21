@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7710523535827654939}
   - component: {fileID: 7787109239450952355}
   - component: {fileID: 8403548288809379183}
-  - component: {fileID: 484306849322628651}
   - component: {fileID: 5978170607721210833}
   - component: {fileID: 8866492850907522582}
   - component: {fileID: 1394324675693565887}
@@ -107,21 +106,6 @@ MonoBehaviour:
   terrains: []
   goal: {fileID: 0}
   agent: {fileID: 2752113622831782587}
---- !u!114 &484306849322628651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2752113622831782587}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204635b13bf057d4c997ff98b07e3d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ground: {fileID: 0}
-  walkable: {fileID: 0}
-  goal: {fileID: 0}
 --- !u!114 &5978170607721210833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridMovement: {fileID: 8866492850907522582}
-  tileSelect: {fileID: 0}
+  tileSelection: {fileID: 0}
 --- !u!114 &8866492850907522582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   search: {fileID: 8403548288809379183}
   ground: {fileID: 0}
+  highlight: {fileID: 0}
+  highlightColor: {fileID: 11400000, guid: 6203889973b66c7458915f3d5043361e, type: 2}
 --- !u!114 &1394324675693565887
 MonoBehaviour:
   m_ObjectHideFlags: 0

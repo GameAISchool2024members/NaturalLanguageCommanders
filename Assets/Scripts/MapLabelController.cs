@@ -12,6 +12,11 @@ public class MapLabelController : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        Debug.Log(string.Join(",", GetLabels()));
+    }
+
     public IEnumerable<string> GetLabels()
     {
         foreach (var child in GetComponentsInChildren<MapLabel>())
