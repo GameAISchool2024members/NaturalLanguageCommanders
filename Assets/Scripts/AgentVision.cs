@@ -59,7 +59,8 @@ public class AgentVision : MonoBehaviour
 
         for (int i = 0; i < x; i++)
         {
-            if (Physics.Raycast(transform.position, rayDirections[i], out RaycastHit hit, visionRange))
+            RaycastHit2D hit;
+            if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2(rayDirections[i].x, rayDirections[i].y), visionRange))
             {
                 points[i + 1] = hit.point;
                 Debug.Log("Hit at direction index: " + i);
