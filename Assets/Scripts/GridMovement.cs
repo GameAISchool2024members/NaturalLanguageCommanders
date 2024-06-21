@@ -12,12 +12,12 @@ public class GridMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void FollowGoal()
     {
         Vector3Int position = ground.WorldToCell(transform.position);
         Vector3Int? updatedPosition =  search.GetNext(position);
         if (updatedPosition != null) {
-            transform.position = ground.CellToWorld(updatedPosition.Value);
+            transform.position = ground.GetCellCenterWorld(updatedPosition.Value);
             }
     }
 }
