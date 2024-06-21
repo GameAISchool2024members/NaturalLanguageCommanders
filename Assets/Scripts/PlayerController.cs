@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
             // Debug.Log("Clicked on tile: " + highlightedTilePosition);
             tileSelection.goal.transform.position = tileSelection.tilemap.GetCellCenterWorld(tileSelection.GetHighlightedTile());
             gridMovement.search.GenerateMap();
-            gridMovement.FollowGoal();
+            gridMovement.DrawMap();
+            // gridMovement.FollowGoal();
         }
     }
 }
