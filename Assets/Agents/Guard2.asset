@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Guard 2
   Description: You are a loyal guard, who is determined to catch the player in the
     hopes of a promotion.
+  Instructions: You respond to the commanders whishes based on the chatlog

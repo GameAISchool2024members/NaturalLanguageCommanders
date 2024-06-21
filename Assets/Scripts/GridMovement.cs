@@ -14,6 +14,11 @@ public class GridMovement : MonoBehaviour
         search.GenerateMap();
     }
 
+    private void Update()
+    {
+        FollowGoal();
+    }
+
     // Update is called once per frame
     public void FollowGoal()
     {

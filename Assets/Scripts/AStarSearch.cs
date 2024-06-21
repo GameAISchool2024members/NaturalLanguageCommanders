@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -108,4 +109,9 @@ public class AStarSearch : MonoBehaviour
 
     public Vector3Int? GetNext(Vector3Int current) => map.ContainsKey(current) ? map[current] : null;
 
+    public void Go(GameObject target)
+    {
+        goal = target;
+        GenerateMap();
+    }
 }

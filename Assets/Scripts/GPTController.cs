@@ -17,13 +17,11 @@ public class GPTController : MonoBehaviour
      *  https://www.nuget.org/packages/OpenAI/
      */
     [SerializeField] GameObject agent;
-
+    [SerializeField] AgentPrompts agentPrompts;
 
     private Vector3 agentDirection = Vector3.zero;
 
-
-
-    void Start()
+    public void RoundTick()
     {   
 
         // Env.Load(".env");
@@ -36,35 +34,44 @@ public class GPTController : MonoBehaviour
         chat.RequestParameters.Temperature = 0;
 
         /// give instruction as System
-        string inputMessage = @"You are a commander who gives commands in a dramatic,
-          game-entertaining way to agents.
-          Agents can be used to catch the player. Here are the legends for the places the agents can look for the player.
-          You can only instruct the agents using the legends:\n";
+        string inputMessage = @$"You are {agentPrompts.name}. {agentPrompts.Description}
+          Here are the legends for the places the agents can look for the player. You can only instruct the agents using the legends:\n";
 
         foreach(var l in MapLabelController.Instance.GetLabels()){
             inputMessage += $"{l}\n";
         }
 
         // Debug.Log(inputMessage);
-
+         
         // now let's ask it a question
 
         inputMessage += "Here is an example of a Chatlog:\n";
         inputMessage += ChatLogController.Instance.TextLog;
         inputMessage += "\n---";
-        inputMessage += @"give the agents instructions on where to go based on the information of the chatlog.
-        Limit yourself to 10 words.";
+        inputMessage += agentPrompts.Instructions;
+        inputMessage += @$"Limit yourself to 10 words. 
+                        Youre response should be strickly formattet as following: 
+                        <Legend>|<You're name>:<Walkie talkie chatter>
+                        Here are an example of a correct output:
+                        Wood 1|{agentPrompts.name}: Enemy spottet search Wood 1!";
         chat.AppendSystemMessage(inputMessage);
 
-        addUserInput(chat, ChatLogController.Instance.TextLog);
-
+        this.addUserInput(chat, inputMessage);
     }
 
     async void addUserInput(Conversation chat, String message) {
         chat.AppendUserInput(message);
         string response = await chat.GetResponseFromChatbotAsync();
         Debug.Log(response);
-        ChatLogController.Instance.AddText(response);
+        var messages = response.Split('|');
+        ChatLogController.Instance.AddText(messages[1]);
+        var target = MapLabelController.Instance.ObjectByLabel(messages[0]);
+        if (agent != null)
+        {
+            agent.GetComponent<AStarSearch>().Go(target);
+
+        }
+
         // agentCommands = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
         // Debug.Log(agentCommands["agent1"]);
     }    

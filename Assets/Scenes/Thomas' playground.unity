@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7247621052886331522, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: -6.69
       objectReference: {fileID: 0}
     - target: {fileID: 7247621052886331522, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: -12.73
       objectReference: {fileID: 0}
     - target: {fileID: 7247621052886331522, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
       propertyPath: m_LocalPosition.z
@@ -177,8 +177,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3283279538613577371, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 163745266}
+    - targetCorrespondingSourceObject: {fileID: 3283279538613577371, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 163745272}
+    - targetCorrespondingSourceObject: {fileID: 3283279538613577371, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 163745271}
+    - targetCorrespondingSourceObject: {fileID: 3283279538613577371, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 163745267}
   m_SourcePrefab: {fileID: 100100000, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+--- !u!1 &163745265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3283279538613577371, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+  m_PrefabInstance: {fileID: 163745264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &163745266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163745265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7568d7a2897e847419fb2d7a1342d021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 163745265}
+  agentPrompts: {fileID: 11400000, guid: 4b1de4582499df040b2d4c8f54d9b4cf, type: 2}
+--- !u!114 &163745267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163745265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c555fc238f8b343bb6c90eb7f3cee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundTime: 2
+--- !u!114 &163745271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163745265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db04da90cf134a442bc96b3b804c4e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 1629029350}
+  walkableSprite: {fileID: 0}
+  terrains: []
+  goal: {fileID: 1213049319}
+  agent: {fileID: 163745265}
+--- !u!114 &163745272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163745265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9758ffac0681ef7208525d541c6cbedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  search: {fileID: 163745271}
+  ground: {fileID: 1629029350}
+  highlight: {fileID: 1629029349}
+  highlightColor: {fileID: 0}
 --- !u!1001 &196235287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,6 +276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5978170607721210833, guid: 9e979e78fcee60a1cbd6ea76095b6693, type: 3}
+      propertyPath: tileSelection
+      value: 
+      objectReference: {fileID: 2037589506}
     - target: {fileID: 7710523535827654939, guid: 9e979e78fcee60a1cbd6ea76095b6693, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -345,6 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 706415770}
   - component: {fileID: 706415769}
+  - component: {fileID: 706415771}
   m_Layer: 0
   m_Name: GPTController
   m_TagString: Untagged
@@ -365,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
+  agentPrompts: {fileID: 11400000, guid: cdd2a2550949af940bb80db24ccce4ca, type: 2}
 --- !u!4 &706415770
 Transform:
   m_ObjectHideFlags: 0
@@ -380,6 +463,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &706415771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706415768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c555fc238f8b343bb6c90eb7f3cee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundTime: 2
 --- !u!1 &918439210
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +560,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1213049319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 88777134056441575, guid: 6b55bcac29ae08a40b7c3c5f9d34a22e, type: 3}
+  m_PrefabInstance: {fileID: 1629029348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1297063747
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +1075,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2037589506 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1394324675693565887, guid: 9e979e78fcee60a1cbd6ea76095b6693, type: 3}
+  m_PrefabInstance: {fileID: 196235287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c33cf896f5e33a19b9a9b0b6f188b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2072387646 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8578643127103028819, guid: 69b4595ed8b38cc4c8a8348b7143953c, type: 3}

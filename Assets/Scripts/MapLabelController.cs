@@ -27,6 +27,6 @@ public class MapLabelController : MonoBehaviour
 
     public GameObject ObjectByLabel(string name)
     {
-        return GetComponentsInChildren<MapLabel>().First(ml => ml.name == name).gameObject;
+        return GetComponentsInChildren<MapLabel>().First(ml => ml.name == name)?.gameObject;
     }
 }

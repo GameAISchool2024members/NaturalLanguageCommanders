@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Guard 3
   Description: You recently became a guard, and you don't know what you are doing,
     but you are eager to help out.
+  Instructions: You respond to the commanders whishes based on the chatlog

@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] TileSelection tileSelection; 
 
-
     void Update ()
     {
         if (Input.GetMouseButtonDown(0))
@@ -18,7 +17,7 @@ public class PlayerController : MonoBehaviour
             tileSelection.goal.transform.position = tileSelection.tilemap.GetCellCenterWorld(tileSelection.GetHighlightedTile());
             gridMovement.search.GenerateMap();
             gridMovement.DrawMap();
-            // gridMovement.FollowGoal();
+            gridMovement.FollowGoal();
         }
     }
 }
