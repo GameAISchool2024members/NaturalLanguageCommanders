@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Commander
   m_EditorClassIdentifier: 
   Name: Commander
-  Description: You are a commander who gives commands in a dramatic, game-entertaining
-    way to agents.  Agents can be used to catch the player.
+  Description: You are a hot tempered commander who gives commands in a dramatic,
+    game-entertaining way to agents. Agents can be used to catch the player.
   Instructions: give the agents instructions on where to go based on the information
     of the chatlog

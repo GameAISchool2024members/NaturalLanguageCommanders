@@ -1,14 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-// using DotNetEnv;
 using UnityEngine;
 using OpenAI_API.Chat;
 using System;
 using OpenAI_API;
-using System.Text;
-using System.Collections.Specialized;
-using OpenAI_API.Moderation;
 using OpenAI_API.Models;
 
 public class GPTController : MonoBehaviour
@@ -18,6 +11,8 @@ public class GPTController : MonoBehaviour
      */
     [SerializeField] GameObject agent;
     [SerializeField] AgentPrompts agentPrompts;
+    [SerializeField] Screendumper AIVision;
+    public bool PlayerSpottet = false;
 
     private Vector3 agentDirection = Vector3.zero;
 
@@ -30,7 +25,8 @@ public class GPTController : MonoBehaviour
         var api = new OpenAIAPI(privateKey);
 
         var chat = api.Chat.CreateConversation();
-        chat.Model = Model.ChatGPTTurbo;
+        //chat.Model = Model.GPT4;
+        chat.Model = new Model("gpt-4o") { OwnedBy = "openai" };
         chat.RequestParameters.Temperature = 0;
 
         /// give instruction as System
@@ -49,14 +45,25 @@ public class GPTController : MonoBehaviour
         inputMessage += ChatLogController.Instance.TextLog;
         inputMessage += "\n---";
         inputMessage += agentPrompts.Instructions;
-        inputMessage += @$"Limit yourself to 10 words. 
+        inputMessage += PlayerSpottet ? "You see the player in front of you!\n" : "No player in sight.\n";
+        inputMessage += @$"Respond with one line, limit yourself to 10 words. 
                         Youre response should be strickly formattet as following: 
-                        <Legend>|<You're name>:<Walkie talkie chatter>
-                        Here are an example of a correct output:
-                        Wood 1|{agentPrompts.name}: Enemy spottet search Wood 1!";
+                        <Legend>|<You're name>: <Walkie talkie chatter>
+                        Here are examples of a correct output:
+                        Wood 1|{agentPrompts.name}: Enemy spottet search Wood 1!
+                        Sign 1|{agentPrompts.name}: You guys checkout Wood 1. I'll search Sign 1
+                        Church|{agentPrompts.name}: I'll guard the church, someone check the graveyard
+                        ";
         chat.AppendSystemMessage(inputMessage);
+        
+        if (AIVision != null)
+        {
+            var screen = AIVision.Capture().EncodeToPNG();
+            var image = ChatMessage.ImageInput.FromImageBytes(screen);
+            chat.AppendUserInput("Picture of the map", image);
+        }
 
-        this.addUserInput(chat, inputMessage);
+        addUserInput(chat, inputMessage);
     }
 
     async void addUserInput(Conversation chat, String message) {
@@ -69,7 +76,7 @@ public class GPTController : MonoBehaviour
         if (agent != null)
         {
             agent.GetComponent<AStarSearch>().Go(target);
-
+            agent.GetComponent<GridMovement>().UpdateTarget();
         }
 
         // agentCommands = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);

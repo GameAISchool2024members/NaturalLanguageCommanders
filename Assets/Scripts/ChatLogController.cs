@@ -1,14 +1,12 @@
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ChatLogController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI ChatLog;
     [SerializeField] TMP_InputField TextInput;
     [SerializeField] AudioSource walkieSound;
+    //[SerializeField] TextToSpeech textToSpeech;
 
     public static ChatLogController Instance { get; private set; }
     public string TextLog { get; private set; }
@@ -22,6 +20,7 @@ public class ChatLogController : MonoBehaviour
     public void AddText(string text)
     {
         walkieSound?.Play();
+        //textToSpeech?.Speak(text.Split(':', 2)[1]);
         TextLog = $"{text}\n{TextLog}";
         ChatLog.text = TextLog;
     }

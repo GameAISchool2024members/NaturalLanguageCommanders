@@ -22,6 +22,8 @@ public class AgentVision : MonoBehaviour
     [SerializeField]
     private int rayCastResolution = 10;
 
+    [SerializeField] GPTController GPTAgent;
+
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
     private LineRenderer lineRenderer;
@@ -63,9 +65,10 @@ public class AgentVision : MonoBehaviour
             if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2(rayDirections[i].x, rayDirections[i].y), visionRange))
             {
                 points[i + 1] = hit.point;
-                Debug.Log("Hit at direction index: " + i);
+                //Debug.Log("Hit at direction index: " + i);
                 if (hit.collider.gameObject.tag == "Player") {
-                    playerSpotted();
+                    GPTAgent.PlayerSpottet = true;
+                    return;
                 }
             }
             else
@@ -73,6 +76,7 @@ public class AgentVision : MonoBehaviour
                 points[i + 1] = transform.position + rayDirections[i] * visionRange;
             }
         }
+        GPTAgent.PlayerSpottet = false;
     }
 
     void renderVision() {
