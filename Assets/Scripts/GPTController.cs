@@ -17,7 +17,7 @@ public class GPTController : MonoBehaviour
     private Vector3 agentDirection = Vector3.zero;
 
     public void RoundTick()
-    {   
+    {
 
         // Env.Load(".env");
         // string privateKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");

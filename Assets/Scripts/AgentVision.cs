@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class AgentVision : MonoBehaviour
@@ -28,6 +25,10 @@ public class AgentVision : MonoBehaviour
     private MeshRenderer meshRenderer;
     private LineRenderer lineRenderer;
 
+    [SerializeField]
+    private float AlertCoolDown = 2;
+    private float LastSpottet = 0;
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -39,6 +40,10 @@ public class AgentVision : MonoBehaviour
         angleRadians = angleDegrees * Mathf.PI / 180;
         performRayCasts(rayCastResolution);
         renderVision();
+        if (LastSpottet > 0)
+            LastSpottet -= Time.deltaTime;
+        else
+            LastSpottet = 0;
     }
 
     void performRayCasts(int x)
@@ -68,6 +73,7 @@ public class AgentVision : MonoBehaviour
                 //Debug.Log("Hit at direction index: " + i);
                 if (hit.collider.gameObject.tag == "Player") {
                     GPTAgent.PlayerSpottet = true;
+                    playerSpotted();
                     return;
                 }
             }
@@ -101,6 +107,11 @@ public class AgentVision : MonoBehaviour
 
     void playerSpotted()
     {
-
+        if (LastSpottet == 0)
+        {
+            var landmark = MapLabelController.Instance.ClosestLabel(transform.position);
+            ChatLogController.Instance.AddText($"{GPTAgent.name}: Player spottet near {landmark}!");
+            LastSpottet = AlertCoolDown;
+        }
     }
 }
