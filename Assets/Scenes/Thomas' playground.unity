@@ -209,6 +209,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+--- !u!114 &163745266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5211595014088026210, guid: 9da213f21ce16a6e9b53b46fda11a243, type: 3}
+  m_PrefabInstance: {fileID: 163745264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7568d7a2897e847419fb2d7a1342d021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &196235287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,12 +467,36 @@ MonoBehaviour:
   agent: {fileID: 227528094}
   agentPrompts: {fileID: 11400000, guid: 62cbc553f76433043b8e6533f16a9026, type: 2}
   AIVision: {fileID: 0}
+  textView: {fileID: 0}
   PlayerSpottet: 0
+--- !u!1 &233396292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4825136928358009951, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
+  m_PrefabInstance: {fileID: 1654157957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1839735485 &233396296 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 1724441348417097747, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
   m_PrefabInstance: {fileID: 1654157957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &233396297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233396292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa311a1e8c49d3489e25dbb2c9d02ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 233396296}
+  player: {fileID: 1447007349}
+  guards:
+  - {fileID: 163745266}
+  - {fileID: 227528098}
+  - {fileID: 1882582123}
 --- !u!1 &706415768
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   agentPrompts: {fileID: 11400000, guid: cdd2a2550949af940bb80db24ccce4ca, type: 2}
-  AIVision: {fileID: 1315962918}
+  AIVision: {fileID: 0}
+  textView: {fileID: 233396297}
   PlayerSpottet: 0
 --- !u!4 &706415770
 Transform:
@@ -837,6 +873,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1315962916}
+--- !u!1 &1447007349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2752113622831782587, guid: 9e979e78fcee60a1cbd6ea76095b6693, type: 3}
+  m_PrefabInstance: {fileID: 196235287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1574416942 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4028503816943422287, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
@@ -850,6 +891,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1644660323914697961, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
+      propertyPath: Tilemap
+      value: 
+      objectReference: {fileID: 233396296}
     - target: {fileID: 3833055040172788896, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -894,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map2
       objectReference: {fileID: 0}
+    - target: {fileID: 7747441100293346809, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8234988852688892824, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.75
@@ -902,9 +951,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2802353424140725241, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4825136928358009951, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 233396297}
     - targetCorrespondingSourceObject: {fileID: 7926710785068592354, guid: cbc8d617368ad4c4e9df074c022a00c0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1459,6 +1508,7 @@ MonoBehaviour:
   agent: {fileID: 1882582119}
   agentPrompts: {fileID: 11400000, guid: 4e915f4345d1a6742bafc472cd97f473, type: 2}
   AIVision: {fileID: 0}
+  textView: {fileID: 0}
   PlayerSpottet: 0
 --- !u!1 &1916102334
 GameObject:
@@ -1533,7 +1583,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1394324675693565887, guid: 9e979e78fcee60a1cbd6ea76095b6693, type: 3}
   m_PrefabInstance: {fileID: 196235287}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1447007349}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c33cf896f5e33a19b9a9b0b6f188b48, type: 3}

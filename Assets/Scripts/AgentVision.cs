@@ -73,7 +73,7 @@ public class AgentVision : MonoBehaviour
                 //Debug.Log("Hit at direction index: " + i);
                 if (hit.collider.gameObject.tag == "Player") {
                     GPTAgent.PlayerSpottet = true;
-                    playerSpotted();
+                    playerSpotted(hit.collider.gameObject);
                     return;
                 }
             }
@@ -105,11 +105,11 @@ public class AgentVision : MonoBehaviour
 
     }
 
-    void playerSpotted()
+    void playerSpotted(GameObject player)
     {
         if (LastSpottet == 0)
         {
-            var landmark = MapLabelController.Instance.ClosestLabel(transform.position);
+            var landmark = MapLabelController.Instance.ClosestLabel(player.transform.position);
             ChatLogController.Instance.AddText($"{GPTAgent.name}: Player spottet near {landmark}!");
             LastSpottet = AlertCoolDown;
         }

@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MapLabelController : MonoBehaviour
 {
+    [SerializeField] Tilemap Tilemap;
     public static MapLabelController Instance { get; private set; }
 
     private void Awake()
@@ -44,5 +47,13 @@ public class MapLabelController : MonoBehaviour
             }
         }
         return closest_label;
+    }
+
+    internal Dictionary<Vector3Int, MapLabel> MapLabels()
+    {
+        Dictionary<Vector3Int, MapLabel> map = new();
+        foreach (var child in GetComponentsInChildren<MapLabel>())
+            map.Add(Tilemap.WorldToCell(child.transform.position), child);
+        return map;
     }
 }

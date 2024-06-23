@@ -80,6 +80,9 @@ public class AStarSearch : MonoBehaviour
 
     public void GenerateMap()
     {
+        if (goal == null)
+            return;
+
         goalPos = tilemap.WorldToCell(goal.transform.position);
         agentPos = tilemap.WorldToCell(agent.transform.position);
 
